@@ -7,20 +7,17 @@ node[:deploy].each do |application, deploy|
   end
 
   opsworks_deploy_dir do
-    Chef::Log.info("Denoncourt opsworks_deploy_dir ")
     user deploy[:user]
     group deploy[:group]
     path deploy[:deploy_to]
   end
 
   opsworks_deploy do
-    Chef::Log.info("Denoncourt opsworks_deploy ")
     deploy_data deploy
     app application
   end
 
   opsworks_nodejs do
-    Chef::Log.info("Denoncourt opsworks_nodejs ")
     deploy_data deploy
     app application
   end
